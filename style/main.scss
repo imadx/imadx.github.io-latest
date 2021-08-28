@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
+
+$padding-default: 1rem;
+$color-accent: #6612c5;
+
+html,
+body {
+  font-family: 'Fira Code', monospace;
+  font-size: 11pt;
+  margin: 0;
+  padding: $padding-default * 3 $padding-default;
+  line-height: 1.4;
+}
+
+body {
+  max-width: 60em;
+  margin: 0 auto;
+  background-image: radial-gradient(#f8f8f8 2px, transparent 2px);
+  background-size: $padding-default $padding-default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+h5 {
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: $padding-default * 0.5;
+  margin-bottom: 0;
+}
+
+b {
+  white-space: pre;
+}
+
+details {
+  margin-top: $padding-default * 0.4;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+
+  &[open] {
+    margin-top: $padding-default * 1;
+
+    summary {
+      background-color: $color-accent;
+      color: white;
+      padding: $padding-default * 0.5 $padding-default;
+      display: inline-block;
+      border-radius: 4px;
+      margin-bottom: $padding-default;
+
+      &::after {
+        content: ' Less...';
+      }
+    }
+
+    p:first-of-type {
+      margin-top: $padding-default * 0.4;
+    }
+
+    p,
+    ul {
+      border-left: $color-accent solid 4px;
+      padding-left: $padding-default;
+
+      &.no-border {
+        border-left: none;
+        padding-left: 0;
+        margin-top: $padding-default;
+        margin-bottom: $padding-default;
+      }
+    }
+  }
+
+  summary {
+    color: $color-accent;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: smaller;
+    text-transform: uppercase;
+
+    &::after {
+      content: ' More...';
+    }
+
+    &::marker {
+      content: '';
+    }
+  }
+}
+
+.header {
+  a {
+    margin-right: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  img {
+    width: 20vw;
+    min-width: 50px;
+    max-width: 120px;
+  }
+}
+
+.section {
+  padding-top: $padding-default * 3;
+}
+
+.section-item {
+  padding-top: $padding-default * 1.5;
+}
+
+.section-item--duration {
+  color: $color-accent;
+  margin-top: $padding-default * 0.3;
+  font-size: small;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.section-item--list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ul.compact-list {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: small;
+  font-weight: bold;
+  color: $color-accent;
+
+  &.no-icon {
+    font-size: 1em;
+    
+    &::before {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: url('../img/external-link-icon.svg');
+    display: inline-flex;
+    margin-right: 0.3rem;
+    margin-top: 0.1rem;
+  }
+
+  &[href^='tel'] {
+    &::before {
+      content: url('../img/phone-icon.svg');
+    }
+  }
+
+  &[href^='mailto'] {
+    &::before {
+      content: url('../img/email-icon.svg');
+    }
+  }
+
+  &[href*='linkedin'] {
+    &::before {
+      content: url('../img/linkedin-icon.svg');
+    }
+  }
+
+  &[href*='toptal'] {
+    &::before {
+      content: url('../img/toptal-icon.svg');
+    }
+  }
+
+  &[href*='stackoverflow'] {
+    &::before {
+      content: url('../img/stackoverflow-icon.svg');
+    }
+  }
+
+  &[href*='github'] {
+    &::before {
+      content: url('../img/github-icon.svg');
+    }
+  }
+
+  &[href*='gitlab'] {
+    &::before {
+      content: url('../img/gitlab-icon.svg');
+    }
+  }
+}
