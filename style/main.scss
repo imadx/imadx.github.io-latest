@@ -124,18 +124,48 @@ details {
   padding-top: $padding-default * 1.5;
 }
 
-.section-item--duration {
-  color: $color-accent;
-  margin-top: $padding-default * 0.3;
+.section-item--details {
+  display: flex;
+  align-items: center;
   font-size: small;
-  text-transform: uppercase;
   font-weight: bold;
+  margin-top: $padding-default * 0.3;
+  text-transform: uppercase;
+
+  .section-item--date {
+    color: $color-accent;
+  }
+
+  .section-item--skill {
+    font-weight: lighter;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 1em;
+      border-left: solid thin black;
+      opacity: 0.5;
+      margin-left: $padding-default * 0.5;
+      margin-right: $padding-default * 0.5;
+    }
+
+    &:nth-child(2) {
+      padding-left: $padding-default * 0.5;
+
+      &::before {
+        border-left: none;
+      }
+    }
+
+    opacity: 0.7;
+  }
 }
 
 .section-item--list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  line-height: 2;
 }
 
 ul.compact-list {
@@ -157,7 +187,7 @@ a {
 
   &.no-icon {
     font-size: 1em;
-    
+
     &::before {
       display: none;
     }
@@ -165,9 +195,8 @@ a {
 
   &::before {
     content: url('../img/external-link-icon.svg');
-    display: inline-flex;
+    display: flex;
     margin-right: 0.3rem;
-    margin-top: 0.1rem;
   }
 
   &[href^='tel'] {
