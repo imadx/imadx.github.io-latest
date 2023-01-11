@@ -241,3 +241,30 @@ a {
     }
   }
 }
+
+@media print {
+  .page-break {
+    break-after: always !important;
+  }
+
+  details[open] {
+    summary {
+      display: none !important;
+      background: transparent;
+    }
+
+    * {
+      font-size: small;
+      opacity: 0.7;
+    }
+  }
+
+  .section-item--list {
+    a {
+      &::after {
+        content: '[' attr(href) ']';
+        padding-left: 1rem;
+      }
+    }
+  }
+}
